@@ -1,0 +1,39 @@
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 mt-2 text-center bg-body-tertiary">
+    <h3 class="chart-title text-body-secondary">Average Events per User</h3>
+    <div class="d-flex justify-content-evenly">
+        <app-spinner *ngIf="!showGaugeChart"></app-spinner>
+        <div id="gaugeChart" *ngIf="showGaugeChart">
+            <apx-chart [series]="gaugeChartOptions.series" [chart]="gaugeChartOptions.chart"
+                [colors]="gaugeChartOptions.colors" [plotOptions]="gaugeChartOptions.plotOptions"
+                [fill]="gaugeChartOptions.fill" [stroke]="gaugeChartOptions.stroke"
+                [labels]="gaugeChartOptions.labels">>
+            </apx-chart>
+        </div>
+    </div>
+</div>
+
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 mt-2 text-center bg-body-tertiary">
+    <h3 class="chart-title text-body-secondary">Active Users</h3>
+    <div class="mb-3">
+        <app-dynamicform [inputRequirements]="activeUsersEventData?.inputRequirements!"
+            (formDataSubmit)="onActiveUsersFormSubmit($event)"></app-dynamicform>
+    </div>
+    <div style="text-align:center" *ngIf="isShowLineChart">
+        <apx-chart [series]="lineChartOptions.chartSeries" [chart]="lineChartOptions.chartOptions"
+            [xaxis]="lineChartOptions.xaxis" [dataLabels]="lineChartOptions.dataLabels"
+            [stroke]="lineChartOptions.stroke" [grid]="lineChartOptions.grid">
+        </apx-chart>
+    </div>
+</div>
+
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 mt-2 text-center bg-body-tertiary">
+    <h3 class="chart-title text-body-secondary">Total Events per User</h3>
+    <div class="mb-3">
+        <app-dynamicform [inputRequirements]="totalEventsEventData?.inputRequirements!"
+            (formDataSubmit)="onFormDataSubmit($event)"></app-dynamicform>
+    </div>
+    <div style="text-align:center" *ngIf="isShowBarChart">
+        <apx-chart [series]="barChartOptions.series" [chart]="barChartOptions.chart"
+            [xaxis]="barChartOptions.xaxis"></apx-chart>
+    </div>
+</div>

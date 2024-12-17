@@ -1,0 +1,32 @@
+<form [formGroup]="form" class="container mt-4">
+    <div class="row justify-content-end align-items-end g-3 border">
+        <div *ngFor="let input of inputRequirements" class="col-md-4">
+            <div class="mb-3">
+                <div *ngIf="input.dataType === 'Date'">
+                    <input [formControlName]="input.key" type="text" class="form-control" id="{{ input.key }}"
+                        placeholder="{{ input.displayValue }}" onfocus="(this.type='date')" />
+                </div>
+                <div *ngIf="input.dataType === 'Text'">
+                    <input [formControlName]="input.key" type="text" class="form-control" id="{{ input.key }}"
+                        placeholder="{{ input.displayValue }}" />
+                </div>
+                <div *ngIf="input.dataType === 'Number'">
+                    <input [formControlName]="input.key" type="number" class="form-control" id="{{ input.key }}"
+                        placeholder="{{ input.displayValue }}" />
+                </div>
+
+                <div *ngIf="form.get(input.key)?.invalid && form.get(input.key)?.touched" class="text-danger mt-1">
+                    <small *ngIf="form.get(input.key)?.hasError('required')">
+                        {{ input.displayValue }} is required.
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2 text-end mb-3">
+            <button type="submit" class="btn btn-primary w-100" (click)="onSubmit()" [disabled]="form.invalid">
+                Submit
+            </button>
+        </div>
+    </div>
+</form>

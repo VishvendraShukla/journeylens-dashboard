@@ -1,0 +1,34 @@
+
+
+.container-fluid {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    height: 100%;
+}
+
+.sidebar {
+    position: relative;
+    height: 100%;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: inherit;
+    padding: 8px !important;
+}
+
+.nav-item:hover {
+    color: var(--bs-primary);
+    transition: color 0.3s ease;
+}

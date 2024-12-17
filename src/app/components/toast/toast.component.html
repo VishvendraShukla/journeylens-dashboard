@@ -1,0 +1,9 @@
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 1060; min-width: 300px;">
+    <div class="toast show {{ toast.event}} text-wrap fw-semibold" role="alert" aria-live="assertive" aria-atomic="true"
+        [attr.data-bs-autohide]="false" (hidden.bs.toast)="toastService.remove(toast)"
+        [attr.data-bs-delay]="toast.delay" *ngFor="let toast of toastService.toasts">
+        <div class="toast-body text-white">
+            {{toast.body}}
+        </div>
+    </div>
+</div>

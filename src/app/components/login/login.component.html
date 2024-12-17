@@ -1,0 +1,38 @@
+<div class="container my-5">
+    <app-spinner *ngIf="showSpinner"></app-spinner>
+    <div *ngIf="!showSpinner" class="p-5 bg-body-tertiary rounded-3">
+        "username": "john.doe@gmail.com",
+        "password": "1@JohnDoe@1"
+        <div class="text-center">
+            <h1 class="text-body-emphasis my-2">Please sign in</h1>
+        </div>
+        <div class="col-lg-4 mx-auto fs-5 text-muted">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email/Username</label>
+                    <input type="email" class="form-control" formControlName="email" placeholder="name@example.com">
+                    <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched"
+                        class="text-danger">
+                        <small *ngIf="loginForm.controls['email'].errors?.['required']">Email is required.</small>
+                        <small *ngIf="loginForm.controls['email'].errors?.['email']">Please enter a valid email.</small>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" formControlName="password" placeholder="*******">
+                    <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched"
+                        class="text-danger">
+                        <small *ngIf="loginForm.controls['password'].errors?.['required']">Password is required.</small>
+                        <small *ngIf="loginForm.controls['password'].errors?.['minlength']">
+                            Password must be at least 6 characters long.
+                        </small>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-evenly">
+                    <button type="submit" class="btn btn-primary px-4 py-2">Login</button>
+                    <button type="submit" class="btn btn-secondary px-4 py-2">Signup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

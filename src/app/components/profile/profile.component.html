@@ -1,0 +1,61 @@
+<div class="container mt-5 position-relative overflow-hidden p-5 bg-body-tertiary">
+    <div class="card shadow-sm">
+        <div class="card-header bg-dark text-white">
+            <h4 class="mb-0">User Profile</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <app-spinner *ngIf="!showUserProfile"></app-spinner>
+                <div *ngIf="showUserProfile">
+                    <div class="col-md-6">
+                        <p><strong>Full Name:</strong> {{ appUserData?.firstName }} {{ appUserData?.lastName }}</p>
+                        <p><strong>Email/Username: </strong> {{ appUserData?.email }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>UID: </strong>{{ appUserData?.uid }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div [hidden]="appUserData?.hasApiKey">
+        <button data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Clicking will create a new API key."
+            type="submit" (click)="createApiKeyForUser()" class="btn btn-outline-warning btn-lg">
+            Create API Key
+        </button>
+    </div>
+    <div class="card shadow-sm" *ngIf="appUserData?.hasApiKey">
+        <div class="card-header bg-dark text-white">
+            <h4 class="mb-0">API keys</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <app-spinner *ngIf="!showAPIKey"></app-spinner>
+                <div *ngIf="showAPIKey">
+                    <div class="col-md-8">
+                        <p class="d-flex align-items-center"
+                            style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                            <strong>API Key:</strong>
+                            <span class="ms-2" style="word-wrap: break-word;">{{ isKeyVisible ? appUserData?.apiKey :
+                                maskedApiKey }}</span>
+                            <i class="bi bi-eye ms-2 cursor-pointer" (click)="toggleApiKeyVisibility()"
+                                [ngClass]="{ 'bi-eye-slash': isKeyVisible, 'bi-eye': !isKeyVisible }"></i>
+                        </p>
+                        <p><strong>Created At:</strong> {{appUserData?.apiKeyCreatedAt | date:'MMMM d, y' }}</p>
+                        <p><strong>Is Active:</strong> {{appUserData?.isKeyActive}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer d-flex justify-content-end">
+            <button class="btn btn-secondary mx-1" type="button" (click)="updateApiKey()"
+                *ngIf="!appUserData?.isKeyActive">Create New key</button>
+            <button class="btn mx-1" [class.btn-outline-danger]="appUserData?.isKeyActive"
+                [class.btn-outline-warning]="!appUserData?.isKeyActive" type="button" (click)="updateApiKey()">
+                {{ !appUserData?.isKeyActive ? 'Enable Key' : 'Disable Key' }}
+            </button>
+            <button class="btn btn-outline-secondary mx-1" type="button" (click)="copyToClipboard()">Copy key</button>
+        </div>
+    </div>
+</div>

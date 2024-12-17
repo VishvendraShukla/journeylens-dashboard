@@ -1,0 +1,10 @@
+export enum AnalyticsCategoryVars {
+  USER_ENGAGEMENT = 'USER_ENGAGEMENT',
+  SESSION = 'SESSION',
+}
+
+export enum AnalyticsCommandVars {
+  AVERAGE_EVENTS_PER_USER = 'AVERAGE_EVENTS_PER_USER',
+  TOTAL_EVENTS_PER_USER = 'TOTAL_EVENTS_PER_USER',
+  ACTIVE_USERS = 'ACTIVE_USERS',
+}
