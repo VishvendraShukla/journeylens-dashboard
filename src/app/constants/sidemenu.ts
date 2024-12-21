@@ -15,6 +15,11 @@ export const sidemenu = [
     iconClassName: 'bi-clock-history',
   },
   {
+    menuName: 'Event Type',
+    componentUrl: 'event-type',
+    iconClassName: 'bi-tags',
+  },
+  {
     menuName: 'Profile',
     componentUrl: 'profile',
     iconClassName: 'bi-person-circle',

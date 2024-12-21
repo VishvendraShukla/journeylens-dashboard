@@ -12,6 +12,8 @@ import { ProfileComponent } from '../profile/profile.component';
 import { DynamicformComponent } from '../dynamicform/dynamicform.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SpinnerComponent } from '../spinner/spinner.component';
+import { SessionComponent } from '../session/session.component';
+import { EventtypeComponent } from '../eventtype/eventtype.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { SpinnerComponent } from '../spinner/spinner.component';
     ProfileComponent,
     DynamicformComponent,
     SpinnerComponent,
+    SessionComponent,
+    EventtypeComponent,
   ],
   imports: [
     CommonModule,

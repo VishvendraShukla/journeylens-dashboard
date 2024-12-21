@@ -1,0 +1,27 @@
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 mt-2 text-center bg-body-tertiary">
+    <h3 class="chart-title text-body-secondary">Session per User</h3>
+    <div class="mb-3">
+        <app-dynamicform [inputRequirements]="averageSessionDuration?.inputRequirements!"
+            (formDataSubmit)="averageSessionFormSubmit($event)"></app-dynamicform>
+    </div>
+    <div style="text-align:center" *ngIf="showGaugeChart">
+        <apx-chart [series]="gaugeChartOptions.series" [chart]="gaugeChartOptions.chart"
+            [colors]="gaugeChartOptions.colors" [plotOptions]="gaugeChartOptions.plotOptions"
+            [fill]="gaugeChartOptions.fill" [stroke]="gaugeChartOptions.stroke" [labels]="gaugeChartOptions.labels">>
+        </apx-chart>
+    </div>
+</div>
+
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 mt-2 text-center bg-body-tertiary">
+    <h3 class="chart-title text-body-secondary">Active Users</h3>
+    <div class="mb-3">
+        <app-dynamicform [inputRequirements]="sessionPerTimePeriod?.inputRequirements!"
+            (formDataSubmit)="onSessionPerTimePeriodFormSubmit($event)"></app-dynamicform>
+    </div>
+    <div style="text-align:center" *ngIf="isShowLineChart">
+        <apx-chart [series]="lineChartOptions.chartSeries" [chart]="lineChartOptions.chartOptions"
+            [xaxis]="lineChartOptions.xaxis" [dataLabels]="lineChartOptions.dataLabels"
+            [stroke]="lineChartOptions.stroke" [grid]="lineChartOptions.grid">
+        </apx-chart>
+    </div>
+</div>

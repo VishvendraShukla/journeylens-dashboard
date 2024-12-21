@@ -1,7 +1,8 @@
-<app-header></app-header>
+<app-header (sidebarToggle)="onToggle($event)"></app-header>
 <div class="container-fluid">
     <div class="row" style="height: 90vh;">
-        <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+        <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary"
+            [ngClass]="{'collapse': isSidebarCollapsed}">
             <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu"
                 aria-labelledby="sidebarMenuLabel">
                 <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
@@ -20,7 +21,7 @@
         <ng-container>
 
         </ng-container>
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content" [ngClass]="{'full-width': isSidebarCollapsed}">
             <router-outlet></router-outlet>
         </main>
     </div>

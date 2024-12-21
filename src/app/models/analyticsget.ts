@@ -9,6 +9,7 @@ export interface InputRequirement {
   displayValue: string;
   dataType: string;
   value: string;
+  options?: string[];
 }
 
 export interface AnalyticsProcessingResponseData<T = any> {

@@ -8,9 +8,14 @@ import { sidemenu } from 'src/app/constants/sidemenu';
 })
 export class HomeComponent implements OnInit {
   title = 'journeylens-dashboard';
+  isSidebarCollapsed: boolean = false;
   menus: any;
   constructor() {}
   ngOnInit(): void {
     this.menus = sidemenu;
+  }
+
+  onToggle(event: any) {
+    this.isSidebarCollapsed = event;
   }
 }

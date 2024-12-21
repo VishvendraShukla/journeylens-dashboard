@@ -20,7 +20,8 @@
     flex-direction: column;
     height: 100%;
     overflow-y: auto;
-}
+    transition: margin-left 0.3s ease;
+  }
 
 .nav-link {
     text-decoration: none;
@@ -32,3 +33,18 @@
     color: var(--bs-primary);
     transition: color 0.3s ease;
 }
+
+.sidebar {
+    transition: width 0.3s ease;
+  }
+  
+  .sidebar.collapse {
+    width: 0;
+    visibility: hidden;
+  }
+
+  .full-width {
+    width: 100vw;
+    margin-left: 0; 
+  }
+  

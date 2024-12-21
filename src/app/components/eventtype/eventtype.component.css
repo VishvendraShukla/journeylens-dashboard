@@ -1,0 +1,10 @@
+.pie-chart {
+    text-align:center;
+     width: 100%;
+      max-width: 400px;
+}
+.form-select {
+    max-width: 10rem;
+    max-height: 10rem;
+    padding: 10px;
+}

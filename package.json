@@ -2,11 +2,11 @@
   "name": "journeylens-dashboard",
   "version": "0.0.0",
   "scripts": {
-  "start": "ng serve --configuration=development",
-  "start:prod": "ng serve --configuration=production",
-  "build": "ng build --configuration=development",
-  "build:prod": "ng build --configuration=production"
-},
+    "start": "ng serve --configuration=development",
+    "start:prod": "ng serve --configuration=production",
+    "build": "ng build --configuration=development",
+    "build:prod": "ng build --configuration=production"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.1.0",
@@ -17,6 +17,7 @@
     "@angular/platform-browser": "~13.1.0",
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
+    "@popperjs/core": "^2.11.8",
     "@types/bootstrap": "^5.2.10",
     "apexcharts": "^3.54.1",
     "bootstrap": "^5.3.3",

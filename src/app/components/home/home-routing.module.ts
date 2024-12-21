@@ -6,6 +6,8 @@ import { HomeComponent } from './home.component';
 import { DashboardHomeComponent } from '../dashboard-home/dashboard-home.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { SignoutComponent } from '../signout/signout.component';
+import { SessionComponent } from '../session/session.component';
+import { EventtypeComponent } from '../eventtype/eventtype.component';
 
 const routes: Routes = [
   {
@@ -15,6 +17,14 @@ const routes: Routes = [
       {
         path: 'user-management',
         component: UserManagementComponent,
+      },
+      {
+        path: 'session',
+        component: SessionComponent,
+      },
+      {
+        path: 'event-type',
+        component: EventtypeComponent,
       },
       {
         path: 'profile',
